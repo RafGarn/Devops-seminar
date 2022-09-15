@@ -1,0 +1,6 @@
+FROM yanivomc/alpine-oraclejdk8:slim
+WORKDIR /app
+ENV DBHOST=MYSQL
+ENV DBURL=mydb.com
+COPY spring-music.jar ./spring-music.jar
+CMD java -jar ./spring-music.jar -Dspring.profiles.active=test
