@@ -14,9 +14,17 @@ services:
       - 6379:6379
     networks:
       - db_layer
-    environment:
+
+  db_mysql:
+    image: wangxian/alpine-mysql
+    environment: # env variables
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
       - MYSQL_DATABASE=music
+    ports:
+      - 3302:3306
+    volumes:
+      - ./volume:/app
+      
   nginx:
     image: nginx
     ports:
