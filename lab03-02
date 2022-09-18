@@ -1,0 +1,26 @@
+version: '3.3'
+services:
+  web:
+    build: ./spring-music/
+    image: yanivomc/spring-music:8
+    ports:
+      - 8080:8080
+    networks:
+      - fe_layer
+      - db_layer
+  redisdb:
+    image: redis
+    ports:
+      - 6379:6379
+    networks:
+      - db_layer
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=music
+  nginx:
+    image: nginx
+    ports:
+      - 80:80
+networks:
+  db_layer:
+  fe_layer:
