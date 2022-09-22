@@ -1,0 +1,25 @@
+FROM python:3.9 as builder
+RUN echo "installing python libraries"
+WORKDIR /code
+COPY ./test ./test
+RUN pip install nibabel >> ./libs
+RUN echo "building"
+
+FROM alpine:latest as unittest
+WORKDIR /unittest
+COPY --from=builder /code/test ./unit-test
+RUN echo "Running unit tests" > ./unit-test
+
+FROM alpine:latest as security
+WORKDIR /sonar
+COPY --from=unittest /unittest/unit-test ./test
+RUN echo "Running security" >> ./test
+
+FROM alpine:latest as emailreports
+WORKDIR /reports
+COPY --from=security /sonar/test ./test
+RUN echo "reporting">> ./test
+
+FROM alpine:latest as webapp
+WORKDIR /web
+COPY --from=builder /code/*.py ./code
