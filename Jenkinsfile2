@@ -5,44 +5,44 @@ pipeline {
         stage('Pre-build stg') {
             steps {
               
-              sh 'echo "docker build --target Pre-build"'
+              sh 'docker build --target Pre-build'
             }
         }
         stage('Build') {
             steps {
               
-              sh 'echo "docker build --target Build"'
+              sh 'docker build --target Build'
             }
         }
         stage('Test') {
             steps {
               
-              sh 'echo "docker build --target Test"'
+              sh 'docker build --target Test'
             }
         }
         stage('Security') {
             steps {
-              sh 'echo "docker build --target Security"'
+              sh 'docker build --target Security'
             }
         }
         stage('Back-end') {
             steps {
-              sh 'echo "docker build --target Back-end"'
+              sh 'docker build --target Back-end'
             }
         }
         stage('Front-end') {
             steps {
-              sh 'echo "docker build --target Front-end"'
+              sh 'docker build --target Front-end'
             }
         }
         stage('Deploy') {
             steps {
-              sh 'echo "docker build --target Deploy"'
+              sh 'docker build --target Deploy'
             }
         }
         stage('Post') {
             steps {
-              sh 'echo "docker build --target Post"'
+              sh 'docker build --target Post'
               
             }
         }
