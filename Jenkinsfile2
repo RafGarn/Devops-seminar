@@ -5,44 +5,44 @@ pipeline {
         stage('Pre-build stg') {
             steps {
               
-              sh 'docker build --target Pre-build .'
+              sh 'DOCKER_BUILDKIT=1 docker build -t Rafaela:latest --target Pre-build .'
             }
         }
         stage('Build') {
             steps {
               
-              sh 'docker build --target Build .'
+              sh 'DOCKER_BUILDKIT=1 docker build -t Rafaela:latest --target Build .'
             }
         }
         stage('Test') {
             steps {
               
-              sh 'docker build --target Test .'
+              sh 'DOCKER_BUILDKIT=1 docker build -t Rafaela:latest --target Test .'
             }
         }
         stage('Security') {
             steps {
-              sh 'docker build --target Security .'
+              sh 'DOCKER_BUILDKIT=1 docker build -t Rafaela:latest --target Security .'
             }
         }
         stage('Back-end') {
             steps {
-              sh 'docker build --target Back-end .'
+              sh 'DOCKER_BUILDKIT=1 docker build -t Rafaela:latest --target Back-end .'
             }
         }
         stage('Front-end') {
             steps {
-              sh 'docker build --target Front-end .'
+              sh 'DOCKER_BUILDKIT=1 docker build -t Rafaela:latest --target Front-end .'
             }
         }
         stage('Deploy') {
             steps {
-              sh 'docker build --target Deploy .'
+              sh 'DOCKER_BUILDKIT=1 docker build -t Rafaela:latest --target Deploy .'
             }
         }
         stage('Post') {
             steps {
-              sh 'docker build --target Post .'
+              sh 'DOCKER_BUILDKIT=1 docker build -t Rafaela:latest --target Post .'
               
             }
         }
