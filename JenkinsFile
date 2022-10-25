@@ -5,17 +5,17 @@ pipeline {
         stage('Checkout From SCM') {
             steps {
                 echo 'Checkout from SCM..'
-                checkout ...
+                echo checkout ...
             }
         }
         stage('Pre-build stg') {
             steps {
-                echo 'prebuild actions..'
+                sh 'echo "prebuild build"'
             }
         }
         stage('Build') {
             steps {
-              sh 'docker build --target Build'
+              sh 'echo "docke build'
             }
         }
         stage('Test') {
