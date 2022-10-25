@@ -5,44 +5,44 @@ pipeline {
         stage('Pre-build stg') {
             steps {
               
-              sh 'DOCKER_BUILDKIT=1 docker build -t Rafaela:latest --target Pre-build .'
+              sh 'DOCKER_BUILDKIT=1 docker build -t rafaela:latest --target Pre-build .'
             }
         }
         stage('Build') {
             steps {
               
-              sh 'DOCKER_BUILDKIT=1 docker build -t Rafaela:latest --target Build .'
+              sh 'DOCKER_BUILDKIT=1 docker build -t rafaela:latest --target Build .'
             }
         }
         stage('Test') {
             steps {
               
-              sh 'DOCKER_BUILDKIT=1 docker build -t Rafaela:latest --target Test .'
+              sh 'DOCKER_BUILDKIT=1 docker build -t rafaela:latest --target Test .'
             }
         }
         stage('Security') {
             steps {
-              sh 'DOCKER_BUILDKIT=1 docker build -t Rafaela:latest --target Security .'
+              sh 'DOCKER_BUILDKIT=1 docker build -t rafaela:latest --target Security .'
             }
         }
         stage('Back-end') {
             steps {
-              sh 'DOCKER_BUILDKIT=1 docker build -t Rafaela:latest --target Back-end .'
+              sh 'DOCKER_BUILDKIT=1 docker build -t rafaela:latest --target Back-end .'
             }
         }
         stage('Front-end') {
             steps {
-              sh 'DOCKER_BUILDKIT=1 docker build -t Rafaela:latest --target Front-end .'
+              sh 'DOCKER_BUILDKIT=1 docker build -t rafaela:latest --target Front-end .'
             }
         }
         stage('Deploy') {
             steps {
-              sh 'DOCKER_BUILDKIT=1 docker build -t Rafaela:latest --target Deploy .'
+              sh 'DOCKER_BUILDKIT=1 docker build -t rafaela:latest --target Deploy .'
             }
         }
         stage('Post') {
             steps {
-              sh 'DOCKER_BUILDKIT=1 docker build -t Rafaela:latest --target Post .'
+              sh 'DOCKER_BUILDKIT=1 docker build -t rafaela:latest --target Post .'
               
             }
         }
